@@ -2,6 +2,7 @@
 
 import "./globals.css";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "POIÉTICA",
@@ -15,8 +16,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className="antialiased text-gray-900 bg-white">
-        {children}
+      <head />
+      <body className="antialiased text-gray-900 bg-white font-sans">
+        <main>{children}</main>
+
+        {/* Footer con enlace a comentarios */}
+        <footer className="mt-12 text-center text-xs text-gray-500">
+          <a
+            href="/comentarios"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            [ Leer entre líneas ]
+          </a>
+        </footer>
       </body>
     </html>
   );

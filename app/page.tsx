@@ -46,7 +46,14 @@ export default function Home() {
                 </p>
               </Link>
             ))}
-            <p className="mt-4 italic text-sm">[ Leer entre líneas ]</p>
+            <a
+              href="/comentarios"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 italic text-sm hover:underline"
+            >
+              [ Leer entre líneas ]
+            </a>
           </div>
         )}
 
@@ -61,7 +68,14 @@ export default function Home() {
               </p>
             </Link>
           ))}
-          <p className="mt-6 italic text-sm">[ Leer entre líneas ]</p>
+          <a
+            href="/comentarios"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 italic text-sm hover:underline"
+          >
+            [ Leer entre líneas ]
+          </a>
         </div>
       </aside>
 

@@ -1,28 +1,23 @@
-import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
+import { NextResponse } from 'next/server'
+
+let comentarios: { id: number; asunto: string; contenido: string }[] = []
+let contador = 1
+
+export async function GET() {
+  return NextResponse.json({ success: true, data: comentarios })
+}
 
 export async function POST(req: Request) {
-  const data = await req.json(); // Recibe { asunto, comentario }
-
-  const filePath = path.join(process.cwd(), "comentarios.json");
-
-  let comentarios = [];
-
-  // Si el archivo ya existe, leemos su contenido
-  if (fs.existsSync(filePath)) {
-    const fileContent = fs.readFileSync(filePath, "utf-8");
-    comentarios = JSON.parse(fileContent);
+  try {
+    const body = await req.json()
+    const nuevoComentario = {
+      id: contador++,
+      asunto: body.asunto,
+      contenido: body.comentario
+    }
+    comentarios.push(nuevoComentario)
+    return NextResponse.json({ success: true, data: nuevoComentario })
+  } catch (error) {
+    return NextResponse.json({ success: false, error: 'Error procesando el comentario' }, { status: 500 })
   }
-
-  // Agregamos el nuevo comentario
-  comentarios.push({
-    ...data,
-    fecha: new Date().toISOString(),
-  });
-
-  // Guardamos el nuevo array en el archivo
-  fs.writeFileSync(filePath, JSON.stringify(comentarios, null, 2));
-
-  return NextResponse.json({ success: true });
 }
