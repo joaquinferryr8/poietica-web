@@ -6,6 +6,7 @@ import Link from 'next/link'
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [mostrarPlaylist, setMostrarPlaylist] = useState(false)
 
   const discos = [
     { id: "m01", titulo: "lo que somos, lo que escondimos", imagen: "/images/lo-que-escondimos.png" },
@@ -46,14 +47,39 @@ export default function Home() {
                 </p>
               </Link>
             ))}
-            <a
-              href="/comentarios"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 italic text-sm hover:underline"
-            >
-              [ Leer entre líneas ]
-            </a>
+
+            {/* Comentarios + Playlist */}
+            <div className="mt-4 flex flex-col space-y-1">
+              <a
+                href="/comentarios"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="italic text-sm hover:underline text-black"
+              >
+                [ Leer entre líneas ]
+              </a>
+
+              <button
+                onClick={() => setMostrarPlaylist(!mostrarPlaylist)}
+                className="italic text-sm hover:underline text-black text-left"
+              >
+                {mostrarPlaylist ? '[ Ocultar playlist ]' : '[ ▶ Música para recorrer ]'}
+              </button>
+            </div>
+
+            {mostrarPlaylist && (
+              <div className="mt-2">
+                <iframe
+                  width="100%"
+                  height="200"
+                  src="https://www.youtube.com/embed/H6oDPKg_L50"
+                  title="YouTube playlist"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            )}
           </div>
         )}
 
@@ -68,19 +94,48 @@ export default function Home() {
               </p>
             </Link>
           ))}
-          <a
-            href="/comentarios"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 italic text-sm hover:underline"
-          >
-            [ Leer entre líneas ]
-          </a>
+
+          {/* Comentarios + Playlist */}
+          <div className="mt-6 flex flex-col space-y-1">
+            <a
+              href="/comentarios"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="italic text-sm hover:underline text-black"
+            >
+              [ Leer entre líneas ]
+            </a>
+
+            <button
+              onClick={() => setMostrarPlaylist(!mostrarPlaylist)}
+              className="italic text-sm hover:underline text-black text-left"
+            >
+              {mostrarPlaylist ? '[ Ocultar playlist ]' : '[ ▶️ Música para recorrer ]'}
+            </button>
+          </div>
+
+          {mostrarPlaylist && (
+            <div className="mt-2">
+              <iframe
+                width="100%"
+                height="200"
+                src="https://www.youtube.com/embed/H6oDPKg_L50"
+                title="YouTube playlist"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          )}
         </div>
       </aside>
 
       {/* Contenido principal (discos) */}
-      <main className={`flex-1 pt-24 lg:pt-10 px-4 sm:px-6 lg:px-12 transition-all duration-300 ${menuOpen ? 'hidden' : 'block'}`}>
+      <main
+        className={`flex-1 pt-24 lg:pt-10 px-4 sm:px-6 lg:px-12 transition-all duration-300 ${
+          menuOpen ? 'hidden' : 'block'
+        }`}
+      >
         <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {discos.map((disco) => (
             <Link key={disco.id} href={`/discos/${disco.id}`}>
@@ -99,3 +154,4 @@ export default function Home() {
     </div>
   )
 }
+

@@ -28,7 +28,7 @@ export default function RootLayout({
             rel="noopener noreferrer"
             className="hover:underline"
           >
-            [ Leer entre líneas ]
+           
           </a>
         </footer>
       </body>
