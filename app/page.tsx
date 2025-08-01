@@ -63,7 +63,7 @@ export default function Home() {
                 onClick={() => setMostrarPlaylist(!mostrarPlaylist)}
                 className="italic text-sm hover:underline text-black text-left"
               >
-                {mostrarPlaylist ? '[ Ocultar playlist ]' : '[ ▶ Música para recorrer ]'}
+                {mostrarPlaylist ? '[ Ocultar playlist ]' : '[ Música para recorrer ]'}
               </button>
             </div>
 
@@ -110,7 +110,7 @@ export default function Home() {
               onClick={() => setMostrarPlaylist(!mostrarPlaylist)}
               className="italic text-sm hover:underline text-black text-left"
             >
-              {mostrarPlaylist ? '[ Ocultar playlist ]' : '[ ▶️ Música para recorrer ]'}
+              {mostrarPlaylist ? '[ Ocultar playlist ]' : '[ Música para recorrer ]'}
             </button>
           </div>
 
