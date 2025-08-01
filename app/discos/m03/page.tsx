@@ -1,39 +1,56 @@
 export default function Page() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 bg-white rounded-lg shadow-lg">
-      {/* Columna izquierda: Texto */}
+      {/* Columna izquierda: Curaduría */}
       <div>
-        <h1 className="text-2xl font-bold mb-4">En el centro, la voz</h1>
+        <h1 className="text-2xl font-bold mb-4">El amor antes del lenguaje</h1>
+
+        <div className="text-xs text-gray-500 mb-4">
+          <ul className="list-disc list-inside">
+            <li>Película: Close (Lukas Dhont, 2022)</li>
+          </ul>
+        </div>
+
         <p className="text-sm leading-relaxed text-gray-800 whitespace-pre-line">
-          {`A veces creemos que la voz es el canal.
+          {`¿Qué cuerpos quedan atrapados cuando el lenguaje no alcanza?
+¿Qué vínculos se disuelven porque nunca se les enseñó a nombrarse sin culpa?
 
-Que sirve para transmitir lo que pensamos,
-lo que sentimos, lo que somos.
+Hay gestos que son ternura… hasta que se vuelven sospecha.
+Hay silencios que se heredan como forma de protección.
 
-Pero hay momentos en que la voz
-es el mensaje.
+Pero nadie enseña cómo se sobrevive al amor que no se puede decir.
 
-No importa tanto lo que dice,
-sino cómo vibra.
+Lo que no se dijo,
+¿de verdad nunca existió?
 
-Cómo se quiebra.
-Cómo se sostiene.
+Esta pieza no busca justicia,
+ni redención.
 
-La voz construye presencias
-aunque no haya cuerpo.
+Es un testimonio sin voz,
+un intento de traducir lo que se fractura
+cuando alguien aprende que amar —si no se dice—
+duele igual.
 
-Y eso, en medio del ruido digital,
-es una forma de resistencia.
+Porque hay juegos que se transforman en heridas.
+Porque hay gestos que, solo después de perderse,
+entendemos como confesiones.
 
-Escuchar es también una forma de cuidar.`}
+Porque la infancia no protege:
+a veces, condena.
+
+Y lo más cruel del olvido…
+es saber que aún sigue esperando ser perdonado.`}
         </p>
 
+        {/* Preguntas en lista */}
         <div className="mt-8 text-xs text-gray-500">
-          <p className="mb-2 font-semibold">Próximamente…</p>
+          <p className="mb-2 font-semibold">Preguntas para no olvidar:</p>
           <ul className="list-disc list-inside">
-            <li>¿Cómo suena una ausencia?</li>
-            <li>¿Cuándo una voz se vuelve paisaje?</li>
-            <li>¿Podemos grabar el silencio?</li>
+            <li>¿Alguna vez heriste por no saber cómo nombrar lo que sentías?</li>
+            <li>¿Qué parte de vos todavía espera que alguien entienda lo que nunca dijiste?</li>
+            <li>¿Cuántas veces confundiste silencio con protección?</li>
+            <li>¿A quién quisiste perdonar pero no supiste cómo?</li>
+            <li>¿Y si ese gesto que ignoraste… era un pedido de ayuda?</li>
           </ul>
         </div>
       </div>
@@ -45,8 +62,6 @@ Escuchar es también una forma de cuidar.`}
         <img src="/images/m03/close/0003.png" alt="Imagen 3" className="rounded shadow" />
         <img src="/images/m03/close/0004.png" alt="Imagen 4" className="rounded shadow" />
         <img src="/images/m03/close/0005.png" alt="Imagen 5" className="rounded shadow" />
-        <img src="/images/m03/close/0006.png" alt="Imagen 6" className="rounded shadow" />
-        <img src="/images/m03/close/0007.png" alt="Imagen 7" className="rounded shadow" />
       </div>
 
       {/* Navegación Anterior / Siguiente */}
