@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 1. Registrar la fuente Stardos Stencil */
+@font-face {
+  font-family: "Stardos Stencil";
+  src: url("/fonts/StardosStencil-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 2. Clase utilitaria para aplicar estilo BEN-AVIDEZ solo cuando se desee */
+.font-stardos {
+  font-family: 'Stardos Stencil', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    /* Volvemos a tipografía por defecto del sistema */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f8f8f8;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d1d1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b1b1b1;
+}
+
+/* Modal scrollbar */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+.modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.modal-content::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1280px) {
+  .ml-80 {
+    margin-left: 16rem;
+  }
+  .w-80 {
+    width: 16rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .ml-80 {
+    margin-left: 0;
+    padding-top: 5rem;
+  }
+
+  .fixed.left-0.top-0.h-full.w-80 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    max-height: 5rem;
+    overflow: hidden;
+    border-right: none;
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+  }
+
+  .fixed.left-0.top-0.h-full.w-80 .space-y-8 {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .fixed.left-0.top-0.h-full.w-80 .space-y-6 {
+    display: none;
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-cols-3 {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .gap-16 {
+    gap: 2rem;
+  }
+
+  .px-12 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .p-12 {
+    padding: 2rem;
+  }
+}
+
+/* Animation spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin {
+  animation: spin 2s linear infinite;
+}
+
+/* Hover effects */
+.group:hover .shadow-sm {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+              0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Typography refinement */
+.font-light {
+  font-weight: 300;
+}
+
+pre {
+  font-family: inherit;
+}
+
+/* Flicker animation */
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+.animate-flicker {
+  animation: flicker 2s infinite alternate;
+}
