@@ -29,7 +29,7 @@ export default function ComentarioPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     const { error } = await supabase.from('comentarios').insert([
-      { asunto, comentario }
+      { asunto, contenido: comentario }
     ])
     if (!error) {
       setEnviado(true)
@@ -43,7 +43,11 @@ export default function ComentarioPage() {
 
   return (
     <div className="p-8 max-w-xl mx-auto font-sans text-gray-800">
-      <h1 className="text-xl font-bold mb-4">Cliente número: 00003</h1>
+      <h1 className="text-xl font-bold mb-4">Cliente número: 00001</h1>
+
+      <p className="text-sm italic text-gray-600 mb-4">
+        ¿Querés compartir algo que sentiste al recorrer estos paisajes? Este espacio es para vos.
+      </p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
@@ -81,7 +85,7 @@ export default function ComentarioPage() {
         <ul className="space-y-2 text-sm">
           {comentariosPrevios.map((c) => (
             <li key={c.id} className="border-t pt-2">
-              <strong>{c.asunto}:</strong> {c.comentario}
+              <strong>{c.asunto}:</strong> {c.contenido}
             </li>
           ))}
         </ul>
